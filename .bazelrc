@@ -5,6 +5,11 @@ common --enable_platform_specific_config
 startup --windows_enable_symlinks
 build:windows --enable_runfiles
 
+# Required for hermetic zig
+build:linux --sandbox_add_mount_pair=/tmp
+build:macos --sandbox_add_mount_pair=/var/tmp
+build:windows --sandbox_add_mount_pair=C:\Temp
+
 # Enable rustfmt
 build:strict --aspects=@rules_rust//rust:defs.bzl%rustfmt_aspect
 build:strict --output_groups=+rustfmt_checks
