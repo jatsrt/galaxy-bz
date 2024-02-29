@@ -1,0 +1,8 @@
+[workspace]
+members = ["services/project/helloworld", "shared/sharedlib"]
+resolver = "2"
+
+[workspace.dependencies]
+sharedlib = { path = "./shared/sharedlib" }
+
+anyhow = "1.0.75"
